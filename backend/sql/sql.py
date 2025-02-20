@@ -12,7 +12,7 @@ def get_users():
     """ Haalt alle gebruikers op uit de database """
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT username, password FROM users")
+    cursor.execute("SELECT username, password FROM Users")
     users = {row["username"]: row["password"] for row in cursor.fetchall()}
     conn.close()
     return users

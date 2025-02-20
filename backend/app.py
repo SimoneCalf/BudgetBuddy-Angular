@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 import sqlite3
-from database.database.py import get_users, add_user
+from sql.sql import get_users
 
 app = Flask(__name__)
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET' ,'POST'])
 def login():
     users = get_users()
     print(users)
