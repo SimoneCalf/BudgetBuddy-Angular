@@ -1,0 +1,16 @@
+<div class="login-container">
+    <h2>Inloggen</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" formControlName="email" placeholder="Voer je e-mail in" />
+      </div>
+  
+      <div>
+        <label for="password">Wachtwoord</label>
+        <input type="password" id="password" formControlName="password" placeholder="Voer je wachtwoord in" />
+      </div>
+  
+      <button type="submit">Inloggen</button>
+    </form>
+  </div>
