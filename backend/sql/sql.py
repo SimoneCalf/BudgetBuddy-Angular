@@ -1,6 +1,6 @@
 import sqlite3
 
-DB_PATH = "database/FlowTrack.db"
+DB_PATH = "database/FlowTrackDB.db"
 
 def get_db_connection():
     """ Maakt een verbinding met de SQLite database """
@@ -16,3 +16,13 @@ def get_users():
     users = {row["username"]: row["password"] for row in cursor.fetchall()}
     conn.close()
     return users
+
+# simpele database helper om gebruikers op te halen
+def get_user_by_name(username):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT username, password FROM Users WHERE username = ?", (username,))
+    user = cursor.fetchone()
+    conn.close()
+    print(user)
+    return user

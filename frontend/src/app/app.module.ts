@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,10 +20,11 @@ import { RouterModule, Routes } from '@angular/router';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
     // RouterModule.forRoot(routes, { useHash: true }) // 🔹 Enables hash-based routing
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

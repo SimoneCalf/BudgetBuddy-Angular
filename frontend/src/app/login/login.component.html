@@ -1,27 +1,26 @@
 <div class="login-container">
-    <h2>Inloggen</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="username">Gebruikersnaam</label>
-        <input type="text" id="username" formControlName="username" placeholder="Voer je gebruikersnaam in" />
-        <div *ngIf="isSubmitted && formControls['username'].invalid">
-          <small>Gebruikersnaam is verplicht.</small>
-        </div>
+  <h2>Inloggen</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Gebruikersnaam</label>
+      <input type="text" id="username" formControlName="username" placeholder="Voer je gebruikersnaam in" />
+      <div *ngIf="isSubmitted && loginForm.controls['username'].invalid">
+        <small>Gebruikersnaam is verplicht.</small>
       </div>
-  
-      <div>
-        <label for="password">Wachtwoord</label>
-        <input type="password" id="password" formControlName="password" placeholder="Voer je wachtwoord in" />
-        <div *ngIf="isSubmitted && formControls['password'].invalid">
-          <small>Wachtwoord is verplicht.</small>
-        </div>
+    </div>
+
+    <div>
+      <label for="password">Wachtwoord</label>
+      <input type="password" id="password" formControlName="password" placeholder="Voer je wachtwoord in" />
+      <div *ngIf="isSubmitted && loginForm.controls['password'].invalid">
+        <small>Wachtwoord is verplicht.</small>
       </div>
-  
-      <button type="submit">Inloggen</button>
-  
-      <div *ngIf="loginFailed" class="error">
-        <small>Ongeldige gebruikersnaam of wachtwoord.</small>
-      </div>
-    </form>
-  </div>
-  
+    </div>
+
+    <button type="submit">Inloggen</button>
+
+    <div *ngIf="loginFailed" class="error">
+      <small>Ongeldige gebruikersnaam of wachtwoord.</small>
+    </div>
+  </form>
+</div>

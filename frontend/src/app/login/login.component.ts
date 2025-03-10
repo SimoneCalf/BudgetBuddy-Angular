@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+//import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder, 
-    private authService: AuthService,
+    //private authService: AuthService,
+    private http: HttpClient,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -31,20 +33,17 @@ export class LoginComponent {
 
   onSubmit() {
     this.isSubmitted = true;
-    if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-      console.log('Attempting login with:', username, password);
+    if (this.loginForm.invalid) return;
 
-      if (this.authService.login(username, password)) {
-        console.log('✅ Login successful');
-        this.loginFailed = false;
-        setTimeout(() => {
-          this.router.navigate(['dashboard']);
-        }, 100);
-      } else {
-        console.log('❌ Login failed');
-        this.loginFailed = true;
-      }
-    }
+    this.http.post<any>('http://127.0.0.1:5000/login', this.loginForm.value)
+      .subscribe({
+        next: (response) => {
+          console.log(response?.message || 'Geen bericht ontvangen');
+          this.router.navigate(['/dashboard']); // 🔥 Stuur naar dashboard bij succes
+        },
+        error: () => {
+          this.loginFailed = true; // ❌ Toon foutmelding
+        }
+      });
   }
 }
