@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+
+
+<mat-toolbar class="mat-elevation-z3">
+    <button mat-icon>
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+<!-- represents the whole page within the toolbar-->
+<mat-sidenav-container>
+    <!-- contains the sidebar -->
+    <mat-sidenav opened mode="side" [style.width]="'250px'">
+        <app-custom-sidenav/>
+    </mat-sidenav>
+   
+
+    <!-- represents the main content of the page -->
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
