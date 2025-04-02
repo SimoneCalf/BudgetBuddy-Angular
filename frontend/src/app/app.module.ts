@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { CustomSidenavComponent } from './components/custom-sidenav/custom-sidenav.component';
+import {MatListModule} from '@angular/material/list';
+
 
 
 
@@ -32,7 +34,8 @@ import { CustomSidenavComponent } from './components/custom-sidenav/custom-siden
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule,
     // RouterModule.forRoot(routes, { useHash: true }) // 🔹 Enables hash-based routing
   ],
   providers: [],
