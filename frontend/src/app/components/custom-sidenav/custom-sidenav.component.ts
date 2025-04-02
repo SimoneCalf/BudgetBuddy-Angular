@@ -15,11 +15,18 @@ export type MenuItem = {
 export class CustomSidenavComponent {
 
   menuItems = signal<MenuItem[]>([
-    { icon: 'home', label: 'Home', route: '/home' },
-    { icon: 'settings', label: 'Settings', route: '/settings' },
-    { icon: 'info', label: 'About', route: '/about' },
-    { icon: 'contact_mail', label: 'Contact', route: '/contact' },
-    { icon: 'help', label: 'Help', route: '/help' },
+    { icon: 'calendar_month', label: 'January', route: '/January' },
+    { icon: 'calendar_month', label: 'February', route: '/February' },
+    { icon: 'calendar_month', label: 'March', route: '/March' },
+    { icon: 'calendar_month', label: 'April', route: '/April' },
+    { icon: 'calendar_month', label: 'May', route: '/May' },
+    { icon: 'calendar_month', label: 'June', route: '/June' },
+    { icon: 'calendar_month', label: 'July', route: '/July' },
+    { icon: 'calendar_month', label: 'August', route: '/August' },
+    { icon: 'calendar_month', label: 'September', route: '/September' },
+    { icon: 'calendar_month', label: 'October', route: '/October' },
+    { icon: 'calendar_month', label: 'November', route: '/November' },
+    { icon: 'calendar_month', label: 'December', route: '/December' }
   ]);
 
 }
