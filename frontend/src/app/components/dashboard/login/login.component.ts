@@ -32,18 +32,18 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.isSubmitted = true;
-    if (this.loginForm.invalid) return;
+    this.http.post<any>('http://127.0.0.1:5000/login', this.loginForm.value, { withCredentials: true })
+  .subscribe({
+    next: (response) => {
+      console.log(response?.message || 'Geen bericht ontvangen');
+      this.router.navigate(['/dashboard']); // 🔥 Stuur naar dashboard bij succes
+    },
+    error: () => {
+      this.loginFailed = true; // ❌ Toon foutmelding
+    }
+  });
+   
+}
 
-    this.http.post<any>('http://127.0.0.1:5000/login', this.loginForm.value)
-      .subscribe({
-        next: (response) => {
-          console.log(response?.message || 'Geen bericht ontvangen');
-          this.router.navigate(['/dashboard']); // 🔥 Stuur naar dashboard bij succes
-        },
-        error: () => {
-          this.loginFailed = true; // ❌ Toon foutmelding
-        }
-      });
-  }
+
 }

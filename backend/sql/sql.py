@@ -9,20 +9,24 @@ def get_db_connection():
     return conn
 
 def get_users():
-    """ Haalt alle gebruikers op uit de database """
+    """ Haalt alle gebruikers op uit de database, inclusief user_id """
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT username, password FROM Users")
-    users = {row["username"]: row["password"] for row in cursor.fetchall()}
+    cursor.execute("SELECT user_id, username, password FROM Users")
+    users = {
+        row["username"]: {"user_id": row["user_id"], "password": row["password"]}
+        for row in cursor.fetchall()
+    }
     conn.close()
     return users
 
-# simpele database helper om gebruikers op te halen
 def get_user_by_name(username):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT username, password FROM Users WHERE username = ?", (username,))
+    cursor.execute("SELECT user_id, username, password FROM Users WHERE username = ?", (username,))
     user = cursor.fetchone()
     conn.close()
-    print(user)
-    return user
+    if user:
+        # Zet het sqlite3.Row object om naar een dictionary
+        return {"user_id": user["user_id"], "username": user["username"], "password": user["password"]}
+    return None
