@@ -13,6 +13,29 @@ export type MenuItem = {
   styleUrl: './custom-sidenav.component.scss'
 })
 export class CustomSidenavComponent {
+  years: number[] = [2023, 2024, 2025];
+  months: string[] = [
+    'Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni',
+    'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'
+  ];
+
+  openYear: number | null = null;
+  selectedMonth: { year: number | null, month: string | null } = { year: null, month: null };
+
+  toggleYear(year: number): void {
+    this.openYear = this.openYear === year ? null : year;
+  }
+
+  selectMonth(year: number, month: string): void {
+    this.selectedMonth = { year, month };
+    console.log('Geselecteerd:', this.selectedMonth);
+    // Je kunt hier ook een event emitter gebruiken als je de selectie naar een ouder component wilt doorgeven
+  }
+
+  isSelected(year: number, month: string): boolean {
+    return this.selectedMonth.year === year && this.selectedMonth.month === month;
+  }
+
 
   menuItems = signal<MenuItem[]>([
     { icon: 'calendar_month', label: 'January', route: '/January' },

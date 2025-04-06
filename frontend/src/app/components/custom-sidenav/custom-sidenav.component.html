@@ -5,8 +5,39 @@
     </div>
 </div>
 <mat-nav-list>
+    <ng-container *ngFor="let year of years">
+      <!-- Jaar -->
+      <a mat-list-item class="year-block">
+        <button mat-button (click)="toggleYear(year)">
+          {{ year }}
+        </button>
+      </a>
+  
+      <!-- Maanden (alleen zichtbaar als jaar open is) -->
+      <div *ngIf="openYear === year" class="months-list">
+
+        <a mat-list-item *ngFor="let item of menuItems()">
+            <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+            <span matListItemTitle>{{item.label}}</span>
+        </a>
+        <!-- <a
+          mat-list-item
+          *ngFor="let month of months"
+          (click)="selectMonth(year, month)"
+          class="month-button"
+          [class.selected]="isSelected(year, month)"
+        >
+          <span>{{ month }}</span>
+        </a> -->
+      </div>
+    </ng-container>
+  </mat-nav-list>
+
+
+
+<!-- <mat-nav-list>
     <a mat-list-item *ngFor="let item of menuItems()">
         <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
         <span matListItemTitle>{{item.label}}</span>
     </a>
-</mat-nav-list>
+</mat-nav-list> -->
