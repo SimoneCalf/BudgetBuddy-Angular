@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { CustomSidenavComponent } from './components/custom-sidenav/custom-sidenav.component';
 import {MatListModule} from '@angular/material/list';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -25,6 +26,7 @@ import {MatListModule} from '@angular/material/list';
     LoginComponent,
     DashboardComponent,
     CustomSidenavComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

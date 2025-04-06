@@ -1,1 +1,20 @@
+<mat-toolbar class="mat-elevation-z3">
+    <!-- <img width="50" height="50" src="assets/foto.jpg" />
+    <div class="header-text">
+        <h2>Simone Calf</h2>
+    </div> -->
+    <app-header/>
+</mat-toolbar>
 
+<!-- Sidenav-container voor de layout -->
+<mat-sidenav-container>
+    <!-- Sidebar -->
+    <mat-sidenav opened mode="side" [style.width]="'250px'">
+        <app-custom-sidenav></app-custom-sidenav>
+    </mat-sidenav>
+
+    <!-- Hoofdinhoud -->
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
