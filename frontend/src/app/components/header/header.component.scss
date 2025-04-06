@@ -1,8 +1,6 @@
-
-img {
-    border-radius: 100%;
-    object-fit: cover;
-    height: 40px; /* Pas de grootte van de afbeelding aan */
-    width: 40px;
+mat-icon {
+    cursor: pointer; /* Maak de cursor een pointer bij hover */
     margin-right: 16px; /* Voeg wat ruimte toe aan de rechterkant */
+    margin-left: 1450px;
+
 }
