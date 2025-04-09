@@ -15,6 +15,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { CustomSidenavComponent } from './components/custom-sidenav/custom-sidenav.component';
 import {MatListModule} from '@angular/material/list';
 import { HeaderComponent } from './components/header/header.component';
+import { JanuaryComponent } from './components/january/january.component';
+import { MonthoverwievComponent } from './components/monthoverwiev/monthoverwiev.component';
 
 
 
@@ -27,6 +29,8 @@ import { HeaderComponent } from './components/header/header.component';
     DashboardComponent,
     CustomSidenavComponent,
     HeaderComponent,
+    JanuaryComponent,
+    MonthoverwievComponent,
   ],
   imports: [
     BrowserModule,

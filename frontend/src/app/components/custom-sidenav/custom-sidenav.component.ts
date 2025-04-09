@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 export type MenuItem = {
   icon: string;
@@ -13,6 +14,10 @@ export type MenuItem = {
   styleUrl: './custom-sidenav.component.scss'
 })
 export class CustomSidenavComponent {
+
+  constructor(private router: Router) {}
+
+
   years: number[] = [2023, 2024, 2025];
   months: string[] = [
     'Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni',
@@ -24,10 +29,14 @@ export class CustomSidenavComponent {
 
   toggleYear(year: number): void {
     this.openYear = this.openYear === year ? null : year;
+    console.log('Open jaar:', this.openYear);
   }
 
   selectMonth(year: number, month: string): void {
+    console.log('Selecteer maand:', year, month);
     this.selectedMonth = { year, month };
+    this.router.navigate(['/overview', year, month.toLowerCase()]);
+    console.log('Navigeren naar:', year, month.toLowerCase());
     console.log('Geselecteerd:', this.selectedMonth);
     // Je kunt hier ook een event emitter gebruiken als je de selectie naar een ouder component wilt doorgeven
   }
