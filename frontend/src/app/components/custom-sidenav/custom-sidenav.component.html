@@ -8,24 +8,28 @@
 
 
 
-<ng-container *ngFor="let year of years">
-  <!-- Jaar -->
-  <a mat-list-item (click)="toggleYear(year)">
-    <button mat-button>{{ year }}</button>
-  </a>
-
-  <!-- Maanden -->
-  <div *ngIf="openYear === year">
-    <a
-      mat-list-item
-      *ngFor="let month of months"
-      (click)="selectMonth(year, month)"
-    >
-      <mat-icon matListItemIcon>calendar_month</mat-icon>
-      <span matListItemTitle>{{ month }}</span>
+<mat-nav-list>
+  <ng-container *ngFor="let year of years">
+    <!-- Jaar-knop (uitklappen) -->
+    <a mat-list-item (click)="toggleYear(year)">
+      <mat-icon matListItemIcon>expand_more</mat-icon>
+      <span matListItemTitle>{{ year }}</span>
     </a>
-  </div>
-</ng-container>
+
+    <!-- Maandenlijst, alleen tonen als dit jaar geopend is -->
+    <div *ngIf="openYear === year" class="months-list" style="padding-left: 16px;">
+      <a
+        mat-list-item
+        *ngFor="let month of months"
+        (click)="selectMonth(year, month)"
+        [class.selected]="isSelected(year, month)"
+      >
+        <mat-icon matListItemIcon>calendar_month</mat-icon>
+        <span matListItemTitle>{{ month }}</span>
+      </a>
+    </div>
+  </ng-container>
+</mat-nav-list>
 
 
 
