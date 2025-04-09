@@ -21,3 +21,53 @@
         font-size: 0.8rem;
     }
 }
+
+.year-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white; /* Example primary color */
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    // transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .year-button:hover {
+    background-color: ghostwhite; /* Hover color */
+  }
+  
+  .year-button.selected {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: ghostwhite; /* Active color */
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    // transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .month-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: ghostwhite;
+    }
+  }
+  
+  .month-button.selected {
+    background-color: ghostwhite;
+    color: white;
+    font-weight: bold;
+  }

@@ -21,3 +21,8 @@ img {
     width: 40px;
     margin-right: 16px; /* Voeg wat ruimte toe aan de rechterkant */
 }
+
+mat-sidenav {
+    width: 200px;  /* Zorg ervoor dat de breedte altijd 250px is */
+    transition: width 0.3s ease-in-out;  /* Je kunt een animatie toevoegen als je wilt */
+  }

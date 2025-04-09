@@ -12,12 +12,19 @@ export class MonthoverwievComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
-  displayedColumns: string[] = ['date', 'description', 'amount'];
+  displayedColumns: string[] = ['amount', 'account', 'date', 'remark', 'category'];
   dataSource = [
-    { date: '2025-01-01', description: 'Groceries', amount: -50 },
-    { date: '2025-01-03', description: 'Salary', amount: 2000 },
-    { date: '2025-01-05', description: 'Electricity Bill', amount: -120 }
-  ];
+    { amount: 100, account: 'b', date: '2025-01-01', remark: 'beer', category: 'Groceries' },
+    { amount: 55.5, account: 'savings', date: '2025-01-05', remark: 'Netflix', category: 'Subscriptions' },
+    { amount: 200, account: 'b', date: '2025-01-10', remark: 'fuel', category: 'Transport' },
+    { amount: 45.99, account: 'credit', date: '2025-01-12', remark: 'dinner with friends', category: 'Eating Out' },
+    { amount: 300, account: 'b', date: '2025-01-15', remark: 'weekly groceries', category: 'Groceries' },
+    { amount: 1200, account: 'salary', date: '2025-01-01', remark: 'monthly salary', category: 'Income' },
+    { amount: 75, account: 'b', date: '2025-01-20', remark: 'movie tickets', category: 'Entertainment' },
+    { amount: 25, account: 'b', date: '2025-01-22', remark: 'pharmacy', category: 'Health' },
+    { amount: 400, account: 'savings', date: '2025-01-25', remark: 'rent', category: 'Housing' },
+    { amount: 60, account: 'b', date: '2025-01-28', remark: 'Uber rides', category: 'Transport' }
+  ]
 
   jaar: string | null = null;
   maand: string | null = null;
