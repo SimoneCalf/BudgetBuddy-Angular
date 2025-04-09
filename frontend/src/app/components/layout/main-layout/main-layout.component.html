@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="mat-elevation-z3">
+    <app-header></app-header>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="layout-container">
+    <mat-sidenav opened mode="side" class="sidenav">
+      <app-custom-sidenav></app-custom-sidenav>
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="main-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

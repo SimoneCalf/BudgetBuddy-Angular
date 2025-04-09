@@ -8,10 +8,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './monthoverwiev.component.scss'
 })
 export class MonthoverwievComponent implements OnInit {
-  jaar: string | null = null;
-  maand: string | null = null;
+ 
 
   constructor(private route: ActivatedRoute) {}
+
+  displayedColumns: string[] = ['date', 'description', 'amount'];
+  dataSource = [
+    { date: '2025-01-01', description: 'Groceries', amount: -50 },
+    { date: '2025-01-03', description: 'Salary', amount: 2000 },
+    { date: '2025-01-05', description: 'Electricity Bill', amount: -120 }
+  ];
+
+  jaar: string | null = null;
+  maand: string | null = null;
 
   ngOnInit() {
     this.jaar = this.route.snapshot.paramMap.get('year');

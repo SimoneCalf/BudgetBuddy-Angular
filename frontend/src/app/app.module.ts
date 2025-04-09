@@ -17,7 +17,8 @@ import {MatListModule} from '@angular/material/list';
 import { HeaderComponent } from './components/header/header.component';
 import { JanuaryComponent } from './components/january/january.component';
 import { MonthoverwievComponent } from './components/monthoverwiev/monthoverwiev.component';
-
+import { MatTableModule } from '@angular/material/table';
+import { MainLayoutComponent } from './components/layout/main-layout/main-layout.component';
 
 
 
@@ -31,9 +32,11 @@ import { MonthoverwievComponent } from './components/monthoverwiev/monthoverwiev
     HeaderComponent,
     JanuaryComponent,
     MonthoverwievComponent,
+    MainLayoutComponent,
   ],
   imports: [
     BrowserModule,
+    MatTableModule,
     MatSidenavModule,
     ReactiveFormsModule,
     AppRoutingModule,
